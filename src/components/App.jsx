@@ -20,7 +20,7 @@ export class App extends Component {
         }}
       >
         <button type="button" onClick={this.toggleModal}>
-          Отк / Зак Модалку{' '}
+          открыть модалку
         </button>
         {showModal && (
           <Modal>
@@ -31,6 +31,9 @@ export class App extends Component {
               aperiam facilis. Cumque, qui in. Asperiores sequi possimus
               temporibus. Quas, error veritatis!
             </p>
+            <button type="button" onClick={this.toggleModal}>
+              закрыть модалку
+            </button>
           </Modal>
         )}
 
