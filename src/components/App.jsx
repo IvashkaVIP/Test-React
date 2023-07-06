@@ -1,18 +1,40 @@
-import { Component } from "react"
-import { Modal } from "./Modal/Modal";
+import { Component } from 'react';
+import { Modal } from './Modal/Modal';
 
 export class App extends Component {
-  render () {
-  return(
-    <div
-      className="container"
-      style={{
-        padding: '33px',
-      }}
-    >
-      <Modal />
+  state = {
+    showModal: false,
+  };
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({ showModal: !showModal }));
+  };
 
-      {/* <div
+  render() {
+    const { showModal } = this.state;
+
+    return (
+      <div
+        className="container"
+        style={{
+          padding: '33px',
+        }}
+      >
+        <button type="button" onClick={this.toggleModal}>
+          Отк / Зак Модалку{' '}
+        </button>
+        {showModal && (
+          <Modal>
+            <h2>Это props.children модалки</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
+              sunt eius ex mollitia odit soluta, molestiae cupiditate dolores
+              aperiam facilis. Cumque, qui in. Asperiores sequi possimus
+              temporibus. Quas, error veritatis!
+            </p>
+          </Modal>
+        )}
+
+        {/* <div
         style={{
           height: '100vh',
           display: 'flex',
@@ -24,6 +46,7 @@ export class App extends Component {
       >
         React homework template
       </div> */}
-    </div>
-  );
-};};
+      </div>
+    );
+  }
+}
