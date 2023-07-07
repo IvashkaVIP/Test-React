@@ -1,11 +1,13 @@
 import { Component } from 'react';
 import { Modal } from './Modal/Modal';
+import css from '../components/Modal/Modal.module.css'
 
 export class App extends Component {
   state = {
     showModal: false,
   };
   toggleModal = () => {
+    console.log('toggleModal ',this)
     this.setState(({ showModal }) => ({ showModal: !showModal }));
   };
 
@@ -17,13 +19,17 @@ export class App extends Component {
         className="container"
         style={{
           padding: '33px',
+          textAlign: 'center'
         }}
       >
-        <button type="button" onClick={this.toggleModal}>
+        <button
+          type="button"
+          onClick={this.toggleModal}
+          className={css['modal-title']}        >
           открыть модалку
-        </button>
+                </button>
         {showModal && (
-          <Modal>
+          <Modal onClose={this.toggleModal}>
             <h2>Это props.children модалки</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
