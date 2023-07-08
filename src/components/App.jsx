@@ -7,8 +7,11 @@ export class App extends Component {
     showModal: false,
   };
   toggleModal = () => {
-    console.log('toggleModal ',this)
+    // console.log('toggleModal before', this.state)
+    
     this.setState(({ showModal }) => ({ showModal: !showModal }));
+    
+    // console.log('toggleModal after', this.state);
   };
 
   render() {

@@ -4,14 +4,22 @@ import './Modal.scss';
 
 export class Modal extends Component {
   
-    componentDidMount() {
+  componentDidMount() {
     //console.log(this.props);
-    window.addEventListener('keydown', evt => {
-      //console.log('Событие Нажатие :>>>   ', evt);
-        //console.log(evt.code);
-        this.props.onClose(); 
-                
-    });
+    console.log('Modal >>> DidMount');
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    console.log('Modal >>> WillUnmount');
+  window.removeEventListener('keydown',this.handleKeyDown)
+}
+
+  handleKeyDown = ({ code }) => {
+    if (code === 'Escape'){
+      console.log('Modal >>> handleKeyDown : Escape')
+      this.props.onClose();
+  }
   }
 
   render() {
