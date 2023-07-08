@@ -8,7 +8,8 @@ export class Modal extends Component {
     //console.log(this.props);
     window.addEventListener('keydown', evt => {
       //console.log('Событие Нажатие :>>>   ', evt);
-        console.log(evt.code); this.props.onClose(); 
+        //console.log(evt.code);
+        this.props.onClose(); 
                 
     });
   }
