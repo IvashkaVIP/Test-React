@@ -1,9 +1,9 @@
 import { Component } from "react";
 
-import './Timer.scss'
+import './Clock.scss'
 import css from '../Modal/Modal.module.css'
 
-export class Timer extends Component{
+export class Clock extends Component{
     state = {
     time: new Date().toLocaleTimeString(),
     }
@@ -23,7 +23,7 @@ export class Timer extends Component{
               onClick={this.props.onClose}
               className={css['modal-title']}
             >
-              скрыть таймер
+              скрыть часы
             </button>
           </>
         );

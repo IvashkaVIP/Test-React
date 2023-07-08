@@ -1,17 +1,17 @@
 import { Component } from 'react';
 import { Modal } from './Modal/Modal';
-import {Timer} from './Timer/Timer' 
+import { Clock } from './Clock/Clock';
 import css from '../components/Modal/Modal.module.css'
 
 export class App extends Component {
   state = {
-    showTime: false,
+    showClock: false,
     showModal: false,
   };
-  toggleTimer = () => {
+  toggleClock = () => {
     // console.log('toggleModal before', this.state)
 
-    this.setState(({ showTime }) => ({ showTime: !showTime }));
+    this.setState(({ showClock }) => ({ showClock: !showClock }));
 
     // console.log('toggleModal after', this.state);
   };
@@ -24,7 +24,7 @@ export class App extends Component {
   };
 
   render() {
-    const { showModal, showTime } = this.state;
+    const { showModal, showClock } = this.state;
 
     return (
       <div
@@ -34,15 +34,15 @@ export class App extends Component {
           textAlign: 'center',
         }}
       >
-        {showTime ? (
-          <Timer onClose={this.toggleTimer}></Timer>
+        {showClock ? (
+          <Clock onClose={this.toggleClock}></Clock>
         ) : (
           <button
             type="button"
-            onClick={this.toggleTimer}
+            onClick={this.toggleClock}
             className={css['modal-title']}
           >
-            показать таймер
+            показать часы
           </button>
         )}
 
