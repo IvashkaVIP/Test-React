@@ -1,36 +1,58 @@
 import { Component } from 'react';
 import { Modal } from './Modal/Modal';
+import {Timer} from './Timer/Timer' 
 import css from '../components/Modal/Modal.module.css'
 
 export class App extends Component {
   state = {
+    showTime: false,
     showModal: false,
+  };
+  toggleTimer = () => {
+    // console.log('toggleModal before', this.state)
+
+    this.setState(({ showTime }) => ({ showTime: !showTime }));
+
+    // console.log('toggleModal after', this.state);
   };
   toggleModal = () => {
     // console.log('toggleModal before', this.state)
-    
+
     this.setState(({ showModal }) => ({ showModal: !showModal }));
-    
+
     // console.log('toggleModal after', this.state);
   };
 
   render() {
-    const { showModal } = this.state;
+    const { showModal, showTime } = this.state;
 
     return (
       <div
         className="container"
         style={{
           padding: '33px',
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
+        {showTime ? (
+          <Timer onClose={this.toggleTimer}></Timer>
+        ) : (
+          <button
+            type="button"
+            onClick={this.toggleTimer}
+            className={css['modal-title']}
+          >
+            показать таймер
+          </button>
+        )}
+
         <button
           type="button"
           onClick={this.toggleModal}
-          className={css['modal-title']}        >
+          className={css['modal-title']}
+        >
           открыть модалку
-                </button>
+        </button>
         {showModal && (
           <Modal onClose={this.toggleModal}>
             <h2>Это props.children модалки</h2>

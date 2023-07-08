@@ -1,5 +1,8 @@
 .modal-title {
     color: blue;
+    border-color: blue;
+    border-radius: 5px;
     font-style: italic;
     text-align: center;
 }
+
