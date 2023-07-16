@@ -2,6 +2,11 @@ import { Component } from 'react';
 import { Modal } from './Modal/Modal';
 import { Clock } from './Clock/Clock';
 import css from '../components/Modal/Modal.module.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const notify = (mes) => toast(mes);
+
 
 export class App extends Component {
   state = {
@@ -53,6 +58,13 @@ export class App extends Component {
         >
           открыть модалку
         </button>
+        <button
+          type="button"
+          onClick={() => notify('Toast Forever!!!')}
+          className={css['modal-title']}
+        >
+          показать Notify
+        </button>
         {showModal && (
           <Modal onClose={this.toggleModal}>
             <h2>Это props.children модалки</h2>
@@ -80,6 +92,18 @@ export class App extends Component {
       >
         React homework template
       </div> */}
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
     );
   }
