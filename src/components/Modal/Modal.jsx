@@ -3,8 +3,7 @@ import { Component } from 'react';
 import './Modal.scss';
 
 export class Modal extends Component {
-  componentDidMount() {
-    //console.log(this.props);
+  componentDidMount() {    
     console.log('Modal >>> DidMount');
     window.addEventListener('keydown', this.handleKeyDown);
   }

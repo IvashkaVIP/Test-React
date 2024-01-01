@@ -14,19 +14,10 @@ export class App extends Component {
     showModal: false,
   };
   toggleClock = () => {
-    // console.log('toggleModal before', this.state)
-
-    this.setState(({ showClock }) => ({ showClock: !showClock }));
-
-    // console.log('toggleModal after', this.state);
+    this.setState(({ showClock }) => ({ showClock: !showClock }));    
   };
   toggleModal = () => {
-    // console.log('toggleModal before', this.state)
-
-    this.setState(({ showModal }) => ({ showModal: !showModal }));
-
-    // console.log('toggleModal after', this.state);
-  };
+    this.setState(({ showModal }) => ({ showModal: !showModal }));  };
 
   render() {
     const { showModal, showClock } = this.state;
@@ -79,19 +70,6 @@ export class App extends Component {
             </button>
           </Modal>
         )}
-
-        {/* <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
-        React homework template
-      </div> */}
         <ToastContainer
           position="top-center"
           autoClose={3000}
